@@ -30,20 +30,19 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'chmod +x ./mvnw'
-                sh './mvnw clean compile'
+                sh 'mvn clean install'
             }
         }
         
         stage('Test') {
             steps {
-                sh './mvnw test'
+                sh 'mvn test'
             }
         }
         
         stage('Package') {
             steps {
-                sh './mvnw package -DskipTests'
+                sh 'mvn package -DskipTests'
             }
         }
     }
