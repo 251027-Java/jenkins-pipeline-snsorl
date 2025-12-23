@@ -31,8 +31,9 @@ pipeline {
         
         stage('Build') {
             steps {
-              dir('starter_code')
+              dir('starter_code') {
                 sh 'mvn clean install'
+              }
             }
         }
         
