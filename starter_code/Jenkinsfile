@@ -39,13 +39,17 @@ pipeline {
         
         stage('Test') {
             steps {
+             dir('starter_code') {
                 sh 'mvn test'
-            }
+             }
+           }
         }
         
         stage('Package') {
             steps {
+              dir('starter_code') {
                 sh 'mvn package -DskipTests'
+              }
             }
         }
     }
